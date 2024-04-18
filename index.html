@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarek ait | Learn Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        body{
+            text-align: center;
+            background: #ddd;
+        }
+        .box{
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #dcdcdc;
+            margin: 20px;
+            display: inline-block;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            border: 1px solid black;
+            text-align: center;
+            margin-top: 10px;
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .favourite{
+            border: 2px solid gold;
+        }
+    </style>
+</head>
+<body>
+
+hello my name 
+    <h1>hello my name is tarek ait ahmed, a juniour frontend developer</h1>
+
+
+        <div id="app">
+            <!--attribute binding  (everything will be dynamic) for a shortcut we use only :-->
+            <a :href="url">if you ever wanna calculate your age => </a></a>
+
+            <div v-if="showBooks"><!-- we use the v-for for iterating through a table -->
+               <ul>
+                <li v-for="book in books" :class="{ favourite:book.isFav}"><!-- we can call the book whatever we want --> <!-- notice that this is a very usefull feature that we will be using through our projects-->
+                    <img :src="book.image" :alt="book.title">
+                    <p>this is the book title : <h5>{{book.title}} </h5></p>
+                    <p>this is the book author : <h5>{{book.author}}</h5></p> 
+                    <button @click="toggleIsFav(book)" style="cursor: pointer;">
+                        <span v-if="book.isFav">Remove favourite</span>
+                        <span v-else>Add favourite</span>
+                    </button>
+               </ul>
+            </div>
+
+
+            <button @click="toggleShowBooks()" style="cursor: pointer;">
+                <span v-if="showBooks">Hide Books</span> <!-- this takes it off the dom, which is more time consuming  -->
+                <span v-else>Show books</span>
+            </button>
+            
+
+
+        </div>
+
+
+<!-- challenge toggeling favourites 
+toggl the isfav property 
+
+-->
+        <!-- we can always style this using css-->
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
